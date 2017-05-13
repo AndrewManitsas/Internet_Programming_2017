@@ -55,6 +55,7 @@
                 $server_name = "localhost";
                 $username = "ip_database_handler";
                 $password = "bio7720";
+                $dbName = "book_database";
 
                 //Create connection
                 $connect = mysqli_connect($server_name, $username, $password);
@@ -68,6 +69,30 @@
                 {
                     echo "\nSuccessfull Connection";
                 }
+
+                $sql = "SELECT * FROM books";
+                $result = mysqli_query($connect, $sql);
+
+                if (mysqli_num_rows($result) > 0)
+                {
+                    while($row = mysqli_fetch_assoc($result))
+                    {
+                        echo "ID: " . $row["ID"]. " - Title: " . $row["Title"]. " - Author: " . $row["Author"]. " - Type: " . $row["Type"]. "<br>";
+                    }
+                }
+                else
+                {
+                    echo "0 results";
+                }
+
+                while($row = mysqli_fetch_assoc($result))
+                {
+                    echo "ID: " . $row["ID"]. " - Title: " . $row["Title"]. " - Author: " . $row["Author"]. " - Type: " . $row["Type"]. "<br>";
+                }
+
+                echo "ID: " . $row["ID"]. " - Title: " . $row["Title"]. " - Author: " . $row["Author"]. " - Type: " . $row["Type"]. "<br>";
+
+                mysqli_close($connect);
             ?>
         </div>
 
