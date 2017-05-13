@@ -58,7 +58,7 @@
                 $dbName = "book_database";
 
                 //Create connection
-                $connect = mysqli_connect($server_name, $username, $password);
+                $connect = mysqli_connect($server_name, $username, $password, $dbName);
 
                 //Chech if connection is live
                 if (!$connect)
