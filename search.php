@@ -48,6 +48,27 @@
         <div class="w3-main" style="margin-left:340px;margin-right:40px">
             <h1>Search Results:</h1> 
             <b>What we searched:</b> <?php echo $_POST["searchable"]; ?>
+
+            <br>
+
+            <?php
+                $server_name = "localhost";
+                $username = "ip_database_handler";
+                $password = "bio7720";
+
+                //Create connection
+                $connect = mysqli_connect($server_name, $username, $password);
+
+                //Chech if connection is live
+                if (!$connect)
+                {
+                    die("Connection Failed: " . mysqli_connect_error());
+                }
+                else
+                {
+                    echo "\nSuccessfull Connection";
+                }
+            ?>
         </div>
 
 		<script>
