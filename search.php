@@ -67,10 +67,11 @@
                 }
                 else
                 {
-                    echo "\nSuccessfull Connection";
+                    echo "Successfull Connection<br>";
                 }
 
-                $sql = "SELECT * FROM books";
+                $string = $_POST["searchable"];
+                $sql = "SELECT * FROM books WHERE Title = '$string'";
                 $result = mysqli_query($connect, $sql);
 
                 if (mysqli_num_rows($result) > 0)
@@ -84,13 +85,6 @@
                 {
                     echo "0 results";
                 }
-
-                while($row = mysqli_fetch_assoc($result))
-                {
-                    echo "ID: " . $row["ID"]. " - Title: " . $row["Title"]. " - Author: " . $row["Author"]. " - Type: " . $row["Type"]. "<br>";
-                }
-
-                echo "ID: " . $row["ID"]. " - Title: " . $row["Title"]. " - Author: " . $row["Author"]. " - Type: " . $row["Type"]. "<br>";
 
                 mysqli_close($connect);
             ?>
