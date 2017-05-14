@@ -65,6 +65,60 @@
             <br>
             <b>Phone:</b> <?php echo $_POST["phone"]; ?>
             <br>
+
+            <?php
+                $new_entry_username = $_POST["username"];
+                $new_entry_pass1 = $_POST["password"];
+                $new_entry_pass2 = $_POST["conf_password"];
+                $new_entry_name = $_POST["name"];
+                $new_entry_surname = $_POST["surname"];
+                $new_entry_email = $_POST["email"];
+                $new_entry_age = $_POST["age"];
+                $new_entry_sex = $_POST["sex"];
+                $new_entry_phone = $_POST["phone"];
+
+                if ($new_entry_pass1 == $new_entry_pass2)
+                {
+                    echo "Password entry match <br>";
+
+                    $server_name = "localhost";
+                    $username = "ip_database_handler";
+                    $password = "bio7720";
+                    $dbName = "book_database";
+
+                    //Create connection
+                    $connect = mysqli_connect($server_name, $username, $password, $dbName);
+
+                    //Chech if connection is live
+                    if (!$connect)
+                    {
+                        die("Connection Failed: " . mysqli_connect_error());
+                    }
+                    else
+                    {
+                        echo "Successfull Connection<br>";
+                    }
+
+                    $sql = "INSERT INTO `accounts` (`UID`, `Username`, `Password`, `Name`, `Surname`, `Email`, `Age`, `Sex`, `Phone`) VALUES (NULL, '$new_entry_username', '$new_entry_pass1', '$new_entry_name', '$new_entry_surname', '$new_entry_email', '$new_entry_age', '$new_entry_sex', '$new_entry_phone')";
+                    $result = mysqli_query($connect, $sql);
+
+                    if ($result)
+                    {
+                        echo "New account created <br>";
+                    }
+                    else
+                    {
+                        echo "0 results" . "<br>";
+                        echo "No matching account";
+                    }
+
+                    mysqli_close($connect);
+                }
+                else
+                {
+                    echo "Password Mismatch! <br>";
+                }  
+            ?>
         </div>
 
 		<script>

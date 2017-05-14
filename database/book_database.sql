@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Φιλοξενητής: 127.0.0.1
--- Χρόνος δημιουργίας: 14 Μάη 2017 στις 16:47:00
+-- Χρόνος δημιουργίας: 14 Μάη 2017 στις 18:03:42
 -- Έκδοση διακομιστή: 10.1.21-MariaDB
 -- Έκδοση PHP: 7.1.2
 
@@ -43,7 +43,8 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`UID`, `Username`, `Password`, `Name`, `Surname`, `Email`, `Age`, `Sex`, `Phone`) VALUES
-(1, 'biohazard7720', '123', 'Andrew', 'Manitsas', 'st0709@icte.uowm.gr', 22, 'Male', 1234567898);
+(1, 'biohazard7720', '123', 'Andrew', 'Manitsas', 'st0709@icte.uowm.gr', 22, 'Male', 1234567898),
+(2, 'jackal23', '852456', 'John', 'Doe', 'st0000@icte.uowm.gr', 44, 'male', 2147483647);
 
 -- --------------------------------------------------------
 
@@ -96,7 +97,7 @@ ALTER TABLE `books`
 -- AUTO_INCREMENT για πίνακα `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `UID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `UID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT για πίνακα `books`
 --
