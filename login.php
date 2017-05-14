@@ -50,6 +50,50 @@
             <b>Username:</b> <?php echo $_POST["username"]; ?>
             <br>
             <b>Password:</b> <?php echo $_POST["password"]; ?>
+
+            <br>
+
+            <?php
+                $server_name = "localhost";
+                $username = "ip_database_handler";
+                $password = "bio7720";
+                $dbName = "book_database";
+
+                //Create connection
+                $connect = mysqli_connect($server_name, $username, $password, $dbName);
+
+                //Chech if connection is live
+                if (!$connect)
+                {
+                    die("Connection Failed: " . mysqli_connect_error());
+                }
+                else
+                {
+                    echo "Successfull Connection<br>";
+                }
+
+                $username = $_POST["username"];
+                $password = $_POST["password"];
+                $sql = "SELECT * FROM accounts WHERE Username = '$username' AND Password = '$password'";
+                $result = mysqli_query($connect, $sql);
+
+                if (mysqli_num_rows($result) > 0)
+                {
+                    while($row = mysqli_fetch_assoc($result))
+                    {
+                        echo "Matching account:" . "<br>";
+                        //echo "ID: " . $row["ID"] . " --- Title: " . $row["Title"] . " --- Author: " . $row["Author"] . " --- Type: " . $row["Type"] . " --- ISBN: " . $row["ISBN"] . " --- Price: " . $row["Price"] . "<br>";
+                        echo "UID: " . $row["UID"] . " --- Username: " . $row["Username"] . " --- Password: " . $row["Password"] . " --- Name: " . $row["Name"] . " --- Surname: " . $row["Surname"] . " --- Email: " . $row["Email"] . " --- Age: " . $row["Age"] . "<br>";
+                    }
+                }
+                else
+                {
+                    echo "0 results" . "<br>";
+                    echo "No matching account";
+                }
+
+                mysqli_close($connect);
+            ?>
         </div>
 
 		<script>

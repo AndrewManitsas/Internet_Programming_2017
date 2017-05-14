@@ -72,13 +72,14 @@
 
                 $string = $_POST["searchable"];
                 $sql = "SELECT * FROM books WHERE Title = '$string'";
+                //$sql = "SELECT * FROM books";
                 $result = mysqli_query($connect, $sql);
 
                 if (mysqli_num_rows($result) > 0)
                 {
                     while($row = mysqli_fetch_assoc($result))
                     {
-                        echo "ID: " . $row["ID"]. " - Title: " . $row["Title"]. " - Author: " . $row["Author"]. " - Type: " . $row["Type"]. "<br>";
+                        echo "ID: " . $row["ID"] . " --- Title: " . $row["Title"] . " --- Author: " . $row["Author"] . " --- Type: " . $row["Type"] . " --- ISBN: " . $row["ISBN"] . " --- Price: " . $row["Price"] . "<br>";
                     }
                 }
                 else
