@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Φιλοξενητής: 127.0.0.1
--- Χρόνος δημιουργίας: 14 Μάη 2017 στις 16:19:59
+-- Χρόνος δημιουργίας: 14 Μάη 2017 στις 16:47:00
 -- Έκδοση διακομιστή: 10.1.21-MariaDB
 -- Έκδοση PHP: 7.1.2
 
@@ -32,16 +32,18 @@ CREATE TABLE `accounts` (
   `Password` varchar(20) COLLATE utf8_unicode_520_ci NOT NULL,
   `Name` varchar(20) COLLATE utf8_unicode_520_ci NOT NULL,
   `Surname` varchar(20) COLLATE utf8_unicode_520_ci NOT NULL,
-  `Email` varchar(20) COLLATE utf8_unicode_520_ci NOT NULL,
-  `Age` int(3) NOT NULL
+  `Email` varchar(50) COLLATE utf8_unicode_520_ci NOT NULL,
+  `Age` int(3) NOT NULL,
+  `Sex` varchar(6) COLLATE utf8_unicode_520_ci NOT NULL,
+  `Phone` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci;
 
 --
 -- Άδειασμα δεδομένων του πίνακα `accounts`
 --
 
-INSERT INTO `accounts` (`UID`, `Username`, `Password`, `Name`, `Surname`, `Email`, `Age`) VALUES
-(1, 'biohazard7720', '123', 'Andrew', 'Manitsas', 'st0709@icte.uowm.gr', 22);
+INSERT INTO `accounts` (`UID`, `Username`, `Password`, `Name`, `Surname`, `Email`, `Age`, `Sex`, `Phone`) VALUES
+(1, 'biohazard7720', '123', 'Andrew', 'Manitsas', 'st0709@icte.uowm.gr', 22, 'Male', 1234567898);
 
 -- --------------------------------------------------------
 

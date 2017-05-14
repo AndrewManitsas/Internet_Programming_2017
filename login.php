@@ -83,7 +83,7 @@
                     {
                         echo "Matching account:" . "<br>";
                         //echo "ID: " . $row["ID"] . " --- Title: " . $row["Title"] . " --- Author: " . $row["Author"] . " --- Type: " . $row["Type"] . " --- ISBN: " . $row["ISBN"] . " --- Price: " . $row["Price"] . "<br>";
-                        echo "UID: " . $row["UID"] . " --- Username: " . $row["Username"] . " --- Password: " . $row["Password"] . " --- Name: " . $row["Name"] . " --- Surname: " . $row["Surname"] . " --- Email: " . $row["Email"] . " --- Age: " . $row["Age"] . "<br>";
+                        echo "UID: " . $row["UID"] . " --- Username: " . $row["Username"] . " --- Password: " . $row["Password"] . " --- Name: " . $row["Name"] . " --- Surname: " . $row["Surname"] . " --- Email: " . $row["Email"] . " --- Age: " . $row["Age"] . " --- Sex: " . $row["Sex"] . " --- Phone: " . $row["Phone"] . "<br>";
                     }
                 }
                 else
