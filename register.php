@@ -85,10 +85,7 @@
                 {
                     echo "Password entry match <br>";
 
-                    $server_name = "localhost";
-                    $username = "ip_database_handler";
-                    $password = "bio7720";
-                    $dbName = "book_database";
+                    include("database_handler.php");
 
                     //Create connection
                     $connect = mysqli_connect($server_name, $username, $password, $dbName);

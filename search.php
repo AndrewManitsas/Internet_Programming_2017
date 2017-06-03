@@ -56,23 +56,7 @@
             <br>
 
             <?php
-                $server_name = "localhost";
-                $username = "ip_database_handler";
-                $password = "bio7720";
-                $dbName = "book_database";
-
-                //Create connection
-                $connect = mysqli_connect($server_name, $username, $password, $dbName);
-
-                //Chech if connection is live
-                if (!$connect)
-                {
-                    die("Connection Failed: " . mysqli_connect_error());
-                }
-                else
-                {
-                    echo "Successfull Connection<br>";
-                }
+                include("database_handler.php");
 
                 $string = $_POST["searchable"];
                 $sql = "SELECT * FROM books WHERE Title = '$string'";
