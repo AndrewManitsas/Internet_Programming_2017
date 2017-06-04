@@ -85,6 +85,17 @@
 						echo "Matching account:" . "<br>";
 						//echo "ID: " . $row["ID"] . " --- Title: " . $row["Title"] . " --- Author: " . $row["Author"] . " --- Type: " . $row["Type"] . " --- ISBN: " . $row["ISBN"] . " --- Price: " . $row["Price"] . "<br>";
 						echo "UID: " . $row["user_id"] . " --- Username: " . $row["username"] . " --- Password: " . $row["password"] . " --- Name: " . $row["name"] . " --- Surname: " . $row["surname"] . " --- Email: " . $row["email"] . " --- Age: " . $row["age"] . " --- Sex: " . $row["sex"] . "<br>";
+						
+						$_SESSION['user_id'] = $row["user_id"];
+						$_SESSION['username'] = $row['username'];
+						$_SESSION['password'] = $row['password'];
+						$_SESSION['name'] = $row['name'];
+						$_SESSION['surname'] = $row['surname'];
+						$_SESSION['email'] = $row['email'];
+						$_SESSION['age'] = $row['age'];
+						$_SESSION['sex'] = $row['sex'];
+
+						header('Location: index.html');
 					}
 				}
 				else
