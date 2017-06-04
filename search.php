@@ -53,30 +53,48 @@
 			<h1>Search Results:</h1> 
 			<b>What we searched:</b> <?php echo $_POST["searchable"]; ?>
 
-			<br>
-
 			<?php
-				include("database_handler.php");
-
-				$string = $_POST["searchable"];
-				$sql = "SELECT * FROM books WHERE Title = '$string'";
-				//$sql = "SELECT * FROM books";
+				include('database_handler.php');
+				$str = $_POST['searchable'];
+				$sql = "SELECT * FROM books WHERE title='$str'";
 				$result = mysqli_query($connect, $sql);
-
-				if (mysqli_num_rows($result) > 0)
-				{
-					while($row = mysqli_fetch_assoc($result))
-					{
-						echo "ID: " . $row["ID"] . " --- Title: " . $row["Title"] . " --- Author: " . $row["Author"] . " --- Type: " . $row["Type"] . " --- ISBN: " . $row["ISBN"] . " --- Price: " . $row["Price"] . "<br>";
-					}
-				}
-				else
-				{
-					echo "0 results";
-				}
-
-				mysqli_close($connect);
 			?>
+
+			<table border="1">
+				<tr>
+					<th><b>Book ID</b></th>
+					<th><b>ISBN</b></th>
+					<th><b>Title</b></th>
+					<th><b>Author</b></th>
+					<th><b>Type</b></th>
+					<th><b>Price</b></th>
+					<th><b>Added By</b></th>
+				</tr>
+
+				<?php
+					if (mysqli_num_rows($result) > 0)
+					{
+						while ($row = mysqli_fetch_assoc($result))
+						{
+							?>
+
+							<tr>
+								<td><?php echo $row['book_id']; ?></td>
+								<td><?php echo $row['isbn']; ?></td>
+								<td><?php echo $row['title']; ?></td>
+								<td><?php echo $row['author']; ?></td>
+								<td><?php echo $row['type']; ?></td>
+								<td><?php echo $row['price']; ?></td>
+								<td><?php echo $row['user_id']; ?></td>
+							</tr>
+
+							<?php
+						}
+					}
+				?>
+
+			</table>
+
 		</div>
 
 		<script>
