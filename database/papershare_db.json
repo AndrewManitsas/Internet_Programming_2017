@@ -7,4 +7,8 @@
 
 // papershare_db.accounts
 
-[{"user_id":"2","username":"andrewmanitsas","password":"123","name":"Andrew","surname":"Manitsas","email":"st0709@icte.uowm.gr","age":"22","sex":"male"}, {"user_id":"3","username":"mariakasi86","password":"123","name":"Maria","surname":"Kasiara","email":"mariakasiara@gmail.com","age":"31","sex":"female"}]
+[{"user_id":"2","username":"andrewmanitsas","password":"123","name":"Andrew","surname":"Manitsas","email":"st0709@icte.uowm.gr","age":"22","sex":"male"}, {"user_id":"3","username":"mariakasi86","password":"123","name":"Maria","surname":"Kasiara","email":"mariakasiara@gmail.com","age":"31","sex":"female"}, {"user_id":"4","username":"parlapipas","password":"123","name":"John","surname":"Xatz","email":"123@gmail.com","age":"99","sex":"other"}]
+
+// papershare_db.books
+
+[{"book_id":"1","isbn":"852456","title":"AAABBBCCC","author":"abc","type":"book","price":"20","user_id":"2"}, {"book_id":"2","isbn":"123456","title":"TTTTTTTTT","author":"aabb","type":"RRRRR","price":"10","user_id":"4"}, {"book_id":"3","isbn":"789852","title":"EEEEEEEE","author":"aart","type":"PPP","price":"30","user_id":"3"}, {"book_id":"4","isbn":"0","title":"Perfect Zero","author":"Giannis Hatzoglou","type":"Garbage","price":"-10000","user_id":"2"}]
