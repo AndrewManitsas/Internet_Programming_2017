@@ -43,6 +43,8 @@
 					if (isset($_SESSION['user_id']))
 					{
 						?>
+							<a href="#select" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Select Book</a>
+							<a href="#submit" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Submit Book</a>
 							<a href="logout.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a>
 						<?php
 					}
@@ -68,7 +70,7 @@
 				<?php
 					if (isset($_SESSION['user_id']))
 					{
-						echo "Welcome " . $_SESSION['username'];
+						echo "Logged in as: " . $_SESSION['username'];
 					}
 					else 
 					{
@@ -135,6 +137,100 @@
   					</form>
   				</p>
 			</div>
+
+			<?php
+				if (isset($_SESSION['user_id']))
+				{
+					?>
+						<div class="w3-container" id="select" style="margin-top:75px">
+							<h1 class="w3-xxxlarge w3-text-red"><b>Select Book.</b></h1>
+							<hr style="width:50px;border:5px solid red" class="w3-round">
+
+							<!-- Registered Books - START -->
+							<?php
+								include('database_handler.php');
+
+								$sql = "SELECT * FROM books";
+								$result = mysqli_query($connect, $sql);
+							?>
+
+							<table border="1">
+								<tr>
+									<th><b>Book ID</b></th>
+									<th><b>ISBN</b></th>
+									<th><b>Title</b></th>
+									<th><b>Author</b></th>
+									<th><b>Type</b></th>
+									<th><b>Price</b></th>
+									<th><b>Added By</b></th>
+								</tr>
+
+								<?php
+									if (mysqli_num_rows($result) > 0)
+									{
+										while ($row = mysqli_fetch_assoc($result))
+										{
+											?>
+
+											<tr>
+												<td><?php echo $row['book_id']; ?></td>
+												<td><?php echo $row['isbn']; ?></td>
+												<td><?php echo $row['title']; ?></td>
+												<td><?php echo $row['author']; ?></td>
+												<td><?php echo $row['type']; ?></td>
+												<td><?php echo $row['price']; ?></td>
+												<td><?php echo $row['user_id']; ?></td>
+											</tr>
+
+											<?php
+										}
+									}
+								?>
+							</table>
+							<!-- Registered Books - END -->
+						</div>
+					<?php
+				}
+			?>
+
+			<?php
+				if (isset($_SESSION['user_id']))
+				{
+					?>
+						<!-- Submit book form if there is a logged in user - START -->
+						<div class="w3-container" id="submit" style="margin-top:75px">
+							<h1 class="w3-xxxlarge w3-text-red"><b>Submit Book.</b></h1>
+							<hr style="width:50px;border:5px solid red" class="w3-round">
+							<table width="100%">
+								<tr>
+									<td width="50%" align="center">
+										<form action="submit_book.php" method="POST">
+											<h1>Submit a book to out database.</h1>
+											<label for="">ISBN</label>
+											<input class="w3-input w3-border" type="text" name="isbn">
+											<br>
+											<label for="">Title</label>
+											<input class="w3-input w3-border" type="text" name="title">
+											<br>
+											<label for="">Author</label>
+											<input class="w3-input w3-border" type="text" name="author">
+											<br>
+											<label for="">Type</label>
+											<input class="w3-input w3-border" type="text" name="type">
+											<br>
+											<label for="">Price</label>
+											<input class="w3-input w3-border" type="text" name="price">
+											<br>
+											<input class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" type="submit" name="submit" value="Submit">
+										</form>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<!-- Submit book form if there is a logged in user - END -->
+					<?php
+				}
+			?>
 
 			<!-- Login -->
 			<div class="w3-container" id="login" style="margin-top:75px">
