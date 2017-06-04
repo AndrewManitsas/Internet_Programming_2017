@@ -37,10 +37,27 @@
 			<div class="w3-bar-block">
 				<a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
 				<a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Showcase</a>
-				<a href="#search" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Search</a> 
-				<a href="#login" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Login</a>
-				<a href="#register" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Register</a>
-				<a href="logout.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a>
+				<a href="#search" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Search</a>
+
+				<?php
+					if (isset($_SESSION['user_id']))
+					{
+						?>
+							<a href="logout.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a>
+						<?php
+					}
+					else
+					{
+						?>
+							<a href="#login" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Login</a>
+							<a href="#register" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Register</a>
+						<?php
+					}
+				?>
+
+				<!-- <a href="#login" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Login</a> -->
+				<!-- <a href="#register" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Register</a> -->
+				<!-- <a href="logout.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a> -->
 				<a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
 				<a href="#info" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">About Us</a>
 				</a>
