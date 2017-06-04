@@ -1,0 +1,10 @@
+/**
+ Export to JSON plugin for PHPMyAdmin
+ @version 4.6.5.2
+ */
+
+// Database 'papershare_db'
+
+// papershare_db.accounts
+
+[{"user_id":"2","username":"andrewmanitsas","password":"123","name":"Andrew","surname":"Manitsas","email":"st0709@icte.uowm.gr","age":"22","sex":"male"}, {"user_id":"3","username":"mariakasi86","password":"123","name":"Maria","surname":"Kasiara","email":"mariakasiara@gmail.com","age":"31","sex":"female"}]
